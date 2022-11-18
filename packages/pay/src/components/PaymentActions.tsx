@@ -7,7 +7,7 @@ import { useWeb3React } from "@web3-react/core";
 import { useConnector } from "../contexts/ConnectorContext";
 import { Typography, Box, makeStyles, Link } from "@material-ui/core";
 import { Types } from "@huma-shan/request-client.js";
-import { getBtcPaymentUrl } from "@requestnetwork/payment-processor";
+import { getBtcPaymentUrl } from "@huma-shan/payment-processor";
 import {
   useMobile,
   ReceiptLink,

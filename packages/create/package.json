@@ -7,8 +7,8 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.46",
     "@requestnetwork/currency": "0.8.1-next.1787",
-    "@huma-shan/request-client.js": "0.41.1",
-    "@huma-shan/types": "0.37.1",
+    "@huma-shan/request-client.js": "0.41.2",
+    "@huma-shan/types": "0.37.2",
     "@web3-react/core": "^6.0.7",
     "@web3-react/injected-connector": "^6.0.7",
     "ethers": "5.5.1",
@@ -50,7 +50,7 @@
     ]
   },
   "devDependencies": {
-    "@huma-shan/types": "0.37.1",
+    "@huma-shan/types": "0.37.2",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",

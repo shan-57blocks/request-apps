@@ -3,7 +3,7 @@ import {
   getErc20Balance,
   hasErc20Approval,
   approveErc20,
-} from "@requestnetwork/payment-processor";
+} from "@huma-shan/payment-processor";
 import { useCallback, useEffect, useState } from "react";
 
 import { useWeb3React } from "@web3-react/core";

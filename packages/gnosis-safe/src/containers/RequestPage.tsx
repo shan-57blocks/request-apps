@@ -17,11 +17,11 @@ import {
   hasErc20Approval,
   utils,
   getErc20Balance,
-} from "@requestnetwork/payment-processor";
+} from "@huma-shan/payment-processor";
 import {
   erc20ProxyArtifact,
   ethereumProxyArtifact,
-} from "@requestnetwork/smart-contracts";
+} from "@huma-shan/smart-contracts";
 
 import {
   IParsedRequest,
@@ -34,7 +34,7 @@ import {
 
 import ErrorPage from "./ErrorPage";
 import { useGnosisSafe } from "../contexts/GnosisSafeContext";
-import { getAmountToPay } from "@requestnetwork/payment-processor/dist/payment/utils";
+import { getAmountToPay } from "@huma-shan/payment-processor/dist/payment/utils";
 
 export const RequestNotFound = () => {
   return (

@@ -6,9 +6,9 @@
     "@material-ui/core": "^4.9.7",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.46",
-    "@huma-shan/payment-processor": "0.39.1",
-    "@huma-shan/request-client.js": "0.41.1",
-    "@huma-shan/types": "0.37.1",
+    "@huma-shan/payment-processor": "0.39.2",
+    "@huma-shan/request-client.js": "0.41.2",
+    "@huma-shan/types": "0.37.2",
     "@web3-react/core": "^6.0.7",
     "@web3-react/injected-connector": "^6.0.7",
     "@web3-react/walletconnect-connector": "^6.0.7",
@@ -40,7 +40,7 @@
     "typescript": "^4.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=5000 react-scripts start",
     "build": "NODE_OPTIONS=--max_old_space_size=8192 react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
