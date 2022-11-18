@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 
-import { Request } from "@requestnetwork/request-client.js";
+import { Request } from "@huma-shan/request-client.js";
 import { CurrencyDefinition } from "@requestnetwork/currency";
 
 import { useRate } from "../hooks/useRate";
@@ -125,10 +125,11 @@ export const RequestProvider: React.FC<{ chainId?: string | number }> = ({
         counterCurrency,
         counterValue,
         setPending,
-        update: useCallback(
-          () => fetchRequest(id, chainId, pending),
-          [id, chainId, pending]
-        ),
+        update: useCallback(() => fetchRequest(id, chainId, pending), [
+          id,
+          chainId,
+          pending,
+        ]),
       }}
     >
       {children}

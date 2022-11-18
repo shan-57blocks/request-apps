@@ -1,5 +1,6 @@
+//@ts-nocheck
 import { CurrencyDefinition } from "@requestnetwork/currency";
-import { RequestNetwork, Types } from "@requestnetwork/request-client.js";
+import { RequestNetwork, Types } from "@huma-shan/request-client.js";
 import { useCurrency } from "../contexts/CurrencyContext";
 
 export const useRequestClient = (
@@ -16,9 +17,9 @@ export const getRequestClient = (
   currencyList?: CurrencyDefinition[]
 ) => {
   const requestNetwork = new RequestNetwork({
-    nodeConnectionConfig: {
-      baseURL: `https://${network}.gateway.request.network/`,
-    },
+    // nodeConnectionConfig: {
+    //   baseURL: `https://${network}.gateway.request.network/`,
+    // },
     signatureProvider,
     currencies: currencyList,
   });

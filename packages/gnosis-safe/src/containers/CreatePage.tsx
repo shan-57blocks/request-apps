@@ -11,7 +11,7 @@ import { CreateRequestForm, IFormData } from "../components/CreateRequest";
 import { useConnectedUser } from "../contexts/UserContext";
 
 import { useGnosisSafe } from "../contexts/GnosisSafeContext";
-import { IdentityTypes } from "@requestnetwork/types";
+import { IdentityTypes } from "@huma-shan/types";
 
 export default () => {
   const { safeInfo } = useGnosisSafe();

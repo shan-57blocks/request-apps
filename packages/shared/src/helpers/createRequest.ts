@@ -2,9 +2,9 @@ import {
   IdentityTypes,
   PaymentTypes,
   RequestLogicTypes,
-} from "@requestnetwork/types";
-import { Request } from "@requestnetwork/request-client.js";
-import { constants, providers } from "ethers";
+} from "@huma-shan/types";
+import { Request } from "@huma-shan/request-client.js";
+import { providers } from "ethers";
 import WalletAddressValidator from "wallet-address-validator";
 
 import { chainIdToName } from "./chainIdToName";
@@ -64,17 +64,17 @@ export const useCreateRequest = () => {
     const currency = currencyManager.fromId(currencyId)!;
 
     const isEth = currency.type === RequestLogicTypes.CURRENCY.ETH;
-    const paymentNetwork: PaymentTypes.IPaymentNetworkCreateParameters = isEth
+    const paymentNetwork: any = isEth
       ? {
           id: PaymentTypes.PAYMENT_NETWORK_ID.ETH_INPUT_DATA,
           parameters: { paymentAddress },
         }
       : {
-          id: PaymentTypes.PAYMENT_NETWORK_ID.ERC20_FEE_PROXY_CONTRACT,
+          id: PaymentTypes.PAYMENT_NETWORK_ID.ERC20_NFT_CONTRACT,
           parameters: {
-            paymentAddress,
-            feeAmount: "0",
-            feeAddress: constants.AddressZero,
+            // paymentAddress,
+            // feeAmount: "0",
+            // feeAddress: constants.AddressZero,
           },
         };
 

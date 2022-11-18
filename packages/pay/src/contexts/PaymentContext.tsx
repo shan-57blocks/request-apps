@@ -10,7 +10,7 @@ import { useWeb3React } from "@web3-react/core";
 
 import { useRequest } from "request-shared";
 import { Web3Provider, TransactionResponse } from "@ethersproject/providers";
-import { Types } from "@requestnetwork/request-client.js";
+import { Types } from "@huma-shan/request-client.js";
 import React from "react";
 import { ethers, BigNumber } from "ethers";
 import axios from "axios";
