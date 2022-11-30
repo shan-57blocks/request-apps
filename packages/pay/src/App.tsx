@@ -37,6 +37,17 @@ const App: React.FC = () => {
           >
             <Analytics trackingId="UA-105153327-16">
               <Switch>
+                {/* There is no homepage. In Production, redirects to create.request.network. */}
+                {window.location.hostname !== "localhost" && (
+                  <Route
+                    path="/"
+                    exact
+                    component={() => {
+                      window.location.href = "https://create.request.network";
+                      return null;
+                    }}
+                  />
+                )}
                 {/* Demo page, for tests only */}
                 <Route path="/demo" component={DemoPage} />
                 {/* Main Payment page */}
