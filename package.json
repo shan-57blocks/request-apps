@@ -1,9 +1,4 @@
 {
   "name": "request-apps",
-  "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  }
+  "private": true
 }
