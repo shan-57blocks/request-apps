@@ -21,7 +21,7 @@ export const getRequestClient = (
     //   baseURL: `https://${network}.gateway.request.network/`,
     // },
     nodeConnectionConfig: {
-      baseURL: `http://ec2-3-101-65-54.us-west-1.compute.amazonaws.com:3000/`,
+      baseURL: `https://test.rn.huma.finance/`,
     },
     signatureProvider,
     currencies: currencyList,
