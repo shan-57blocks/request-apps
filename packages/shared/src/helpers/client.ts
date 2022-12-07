@@ -16,12 +16,13 @@ export const getRequestClient = (
   signatureProvider?: Types.SignatureProvider.ISignatureProvider,
   currencyList?: CurrencyDefinition[]
 ) => {
+  const networkMap = {
+    matic: "polygon",
+  };
+  const networkName = networkMap[network] ?? network;
   const requestNetwork = new RequestNetwork({
-    // nodeConnectionConfig: {
-    //   baseURL: `https://${network}.gateway.request.network/`,
-    // },
     nodeConnectionConfig: {
-      baseURL: `https://test.rn.huma.finance/`,
+      baseURL: `https://${networkName}.rn.huma.finance/`,
     },
     signatureProvider,
     currencies: currencyList,
