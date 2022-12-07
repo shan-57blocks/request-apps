@@ -1,15 +1,16 @@
-import { CurrencyInput, CurrencyManager } from "@requestnetwork/currency";
+// import { CurrencyInput, CurrencyManager } from "@requestnetwork/currency";
+import { CurrencyInput } from "@requestnetwork/currency";
 import { RequestLogicTypes } from "@huma-shan/types";
 
-const defaultCurrencies = CurrencyManager.getDefaultList();
+// const defaultCurrencies = CurrencyManager.getDefaultList();
 export const getCurrencies = (): CurrencyInput[] => [
-  ...defaultCurrencies.filter(
-    x =>
-      x.type === RequestLogicTypes.CURRENCY.ETH ||
-      ["DAI-mainnet", "USDC-mainnet", "USDT-mainnet", "FAU-goerli"].includes(
-        x.id
-      )
-  ),
+  // ...defaultCurrencies.filter(
+  //   x =>
+  //     x.type === RequestLogicTypes.CURRENCY.ETH ||
+  //     ["DAI-mainnet", "USDC-mainnet", "USDT-mainnet", "FAU-goerli"].includes(
+  //       x.id
+  //     )
+  // ),
   {
     address: "0xf17FF940864351631b1be3ac03702dEA085ba51c",
     network: "goerli",
@@ -24,18 +25,18 @@ export const getCurrencies = (): CurrencyInput[] => [
     symbol: "USDC",
     type: RequestLogicTypes.CURRENCY.ERC20,
   },
-  {
-    address: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
-    network: "matic",
-    decimals: 6,
-    symbol: "USDT",
-    type: RequestLogicTypes.CURRENCY.ERC20,
-  },
-  {
-    address: "0xDDAfbb505ad214D7b80b1f830fcCc89B60fb7A83",
-    network: "xdai",
-    decimals: 6,
-    symbol: "USDC",
-    type: RequestLogicTypes.CURRENCY.ERC20,
-  },
+  // {
+  //   address: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+  //   network: "matic",
+  //   decimals: 6,
+  //   symbol: "USDT",
+  //   type: RequestLogicTypes.CURRENCY.ERC20,
+  // },
+  // {
+  //   address: "0xDDAfbb505ad214D7b80b1f830fcCc89B60fb7A83",
+  //   network: "xdai",
+  //   decimals: 6,
+  //   symbol: "USDC",
+  //   type: RequestLogicTypes.CURRENCY.ERC20,
+  // },
 ];

@@ -160,7 +160,7 @@ const Amount = ({ className }: { className?: string }) => {
     <TextField
       {...field}
       name="amount"
-      label="Amount"
+      label="Amount (Maximum 100)"
       className={className}
       type="number"
       fullWidth
@@ -218,11 +218,12 @@ const Payer = ({ className }: { className?: string }) => {
   return (
     <TextField
       {...field}
-      label="Who are you sending this request to? (optional)"
-      placeholder="Enter an ENS name or ETH address"
+      label="Who are you sending this request to?"
+      placeholder="Enter an ETH address"
       className={className}
       fullWidth
       size="medium"
+      required
       error={Boolean(meta.error)}
       helperText={Boolean(meta.error) ? meta.error : " "}
     />
@@ -337,19 +338,22 @@ const Footer = ({
 export const schema = Yup.object().shape<IFormData>({
   amount: Yup.number()
     .positive("Please enter a positive number")
+    .max(100, "Please limit to 100 for testing purpose")
     .typeError("Please enter a number")
     .required("Required"),
-  payer: Yup.string().test(
-    "is-valid-recipient",
-    "Please enter a valid ENS or ETH address",
-    async function(value: string) {
-      return (
-        !value ||
-        CurrencyManager.validateAddress(value, { type: "ETH" } as any) ||
-        (isValidEns(value) && !!(await new ENS(value).addr()))
-      );
-    }
-  ),
+  payer: Yup.string()
+    .test(
+      "is-valid-recipient",
+      "Please enter a valid ETH address",
+      async function(value: string) {
+        return (
+          !value ||
+          CurrencyManager.validateAddress(value, { type: "ETH" } as any) ||
+          (isValidEns(value) && !!(await new ENS(value).addr()))
+        );
+      }
+    )
+    .required("Required"),
   currency: Yup.mixed().required("Required"),
   reason: Yup.string().test(
     "is-valid-reason",
