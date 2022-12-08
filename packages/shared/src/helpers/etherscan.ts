@@ -4,6 +4,7 @@ import { IParsedRequest } from "../";
 const etherscanDomain: Record<string, string> = {
   goerli: "https://goerli.etherscan.io",
   mainnet: "https://etherscan.io",
+  matic: "https://polygonscan.com",
 };
 
 export const getEtherscanUrl = (

@@ -42,9 +42,10 @@ const loadRequest = async (
 ): Promise<{ network: string; request: Request } | null> => {
   if (!network) {
     return (
+      (await loadRequest(requestId, "goerli")) ||
+      (await loadRequest(requestId, "matic")) ||
       (await loadRequest(requestId, "xdai")) ||
-      (await loadRequest(requestId, "mainnet")) ||
-      (await loadRequest(requestId, "goerli"))
+      (await loadRequest(requestId, "mainnet"))
     );
   }
   network = chainIdToName(network);
@@ -125,11 +126,10 @@ export const RequestProvider: React.FC<{ chainId?: string | number }> = ({
         counterCurrency,
         counterValue,
         setPending,
-        update: useCallback(() => fetchRequest(id, chainId, pending), [
-          id,
-          chainId,
-          pending,
-        ]),
+        update: useCallback(
+          () => fetchRequest(id, chainId, pending),
+          [id, chainId, pending]
+        ),
       }}
     >
       {children}
