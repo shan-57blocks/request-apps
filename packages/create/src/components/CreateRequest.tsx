@@ -28,7 +28,6 @@ import {
   CurrencyPickerItem,
 } from "request-ui";
 import Dot from "./Dot";
-import { useWeb3React } from "@web3-react/core";
 import { ChangeChainLink } from "./ChangeChainLink";
 
 export interface IFormData {
@@ -191,9 +190,7 @@ const CurrencyPicker = ({ className }: { className?: string }) => {
       helperText={Boolean(meta.error) ? meta.error : " "}
       SelectProps={{
         renderValue: (val) => {
-          console.log(333, val);
           const currency = currencyManager.fromId(val as string)!;
-          console.log(444, currency);
           return (
             <CurrencyPickerItem
               currency={currency}
