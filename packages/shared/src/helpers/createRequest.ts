@@ -70,7 +70,7 @@ export const useCreateRequest = () => {
           parameters: { paymentAddress },
         }
       : {
-          id: PaymentTypes.PAYMENT_NETWORK_ID.ERC20_NFT_CONTRACT,
+          id: PaymentTypes.PAYMENT_NETWORK_ID.ERC20_ADDRESS_BASED,
           parameters: {
             // paymentAddress,
             // feeAmount: "0",
