@@ -1,20 +1,15 @@
-import {
-  IdentityTypes,
-  PaymentTypes,
-  RequestLogicTypes,
-} from "@huma-shan/types";
 import { Request } from "@huma-shan/request-client.js";
-import { providers } from "ethers";
+import { IdentityTypes, RequestLogicTypes } from "@huma-shan/types";
+import { PAYMENT_NETWORK_ID } from "@huma-shan/types/dist/extension-types";
+import { CurrencyManager } from "@requestnetwork/currency";
+import { getDefaultProvider, providers, utils } from "ethers";
 import WalletAddressValidator from "wallet-address-validator";
 
-import { chainIdToName } from "./chainIdToName";
-import { ENS, isValidEns } from "./ens";
-import { CustomSignatureProvider } from "./CustomSignatureProvider";
-import { getDefaultProvider } from "ethers";
-import { CurrencyManager } from "@requestnetwork/currency";
 import { useCurrency } from "../contexts/CurrencyContext";
-import { utils } from "ethers";
+import { chainIdToName } from "./chainIdToName";
 import { getRequestClient } from "./client";
+import { CustomSignatureProvider } from "./CustomSignatureProvider";
+import { ENS, isValidEns } from "./ens";
 
 export interface ICreateRequestArgs {
   payer?: string;
@@ -66,16 +61,12 @@ export const useCreateRequest = () => {
     const isEth = currency.type === RequestLogicTypes.CURRENCY.ETH;
     const paymentNetwork: any = isEth
       ? {
-          id: PaymentTypes.PAYMENT_NETWORK_ID.ETH_INPUT_DATA,
+          id: PAYMENT_NETWORK_ID.ETH_INPUT_DATA,
           parameters: { paymentAddress },
         }
       : {
-          id: PaymentTypes.PAYMENT_NETWORK_ID.ERC20_NFT_CONTRACT,
-          parameters: {
-            // paymentAddress,
-            // feeAmount: "0",
-            // feeAddress: constants.AddressZero,
-          },
+          id: PAYMENT_NETWORK_ID.ERC20_TRANSFERRABLE_RECEIVABLE,
+          parameters: { paymentAddress },
         };
 
     if (payer) {
